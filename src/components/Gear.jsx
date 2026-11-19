@@ -10,23 +10,27 @@ export function Gear() {
           <p className="lead">Na działkę wjeżdża koparka Doosan i ciągnik Fendt — oba z mulczerem.</p>
         </header>
         <div className="gear-grid">
-          <figure>
-            <Photo
-              id="fendt-plac"
-              alt="Ciągnik Fendt z obciążnikiem z przodu i mulczerem z tyłu."
-              sizes="(max-width: 799px) 100vw, 540px"
-            />
+          <figure className="shot-frame">
+            <div className="shot-crop">
+              <Photo
+                id="fendt-plac"
+                alt="Ciągnik Fendt z obciążnikiem z przodu i mulczerem z tyłu."
+                sizes="(max-width: 799px) 100vw, 540px"
+              />
+            </div>
             <figcaption>
               <strong>Fendt z mulczerem</strong>
               Zestaw do pracy z ciągnika.
             </figcaption>
           </figure>
-          <figure>
-            <Photo
-              id="glowica"
-              alt="Głowica mulczująca podniesiona na ramieniu koparki Doosan."
-              sizes="(max-width: 799px) 100vw, 540px"
-            />
+          <figure className="shot-frame">
+            <div className="shot-crop">
+              <Photo
+                id="glowica"
+                alt="Głowica mulczująca podniesiona na ramieniu koparki Doosan."
+                sizes="(max-width: 799px) 100vw, 540px"
+              />
+            </div>
             <figcaption>
               <strong>Głowica mulczująca</strong>
               Rozdrabnia gałęzie, odrosty i pozostałości po wycince.

@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-top">
-        <div>
+        <div className="footer-brand-block">
           <a className="footer-brand" href="#start">
             <Mark />
             <span>MulchMaster</span>
@@ -47,7 +47,12 @@ export function Footer() {
       </div>
       <div className="wrap footer-base">
         <p>© 2026 MulchMaster</p>
-        <p>Bezpłatna wycinka samosiejek od 1 ha, w zamian za materiał.</p>
+        <p>
+          Strona stworzona przez{" "}
+          <a href="https://nocturagency.pl" {...external}>
+            Noctura
+          </a>
+        </p>
       </div>
     </footer>
   );

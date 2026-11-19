@@ -1,4 +1,4 @@
-import { PHONE_DISPLAY, PHONE_HREF, steps } from "../site.js";
+import { FACEBOOK_NAME, PHONE_DISPLAY, PHONE_HREF, steps } from "../site.js";
 import { Photo } from "./Photo.jsx";
 
 export function About() {
@@ -6,20 +6,29 @@ export function About() {
     <section className="section about sheet" id="o-firmie">
       <div className="wrap">
         <div className="about-split">
-          <figure className="about-media">
-            <Photo
-              id="drzewo"
-              alt="Oczyszczona działka z jednym zostawionym drzewem, w tle domy i maszyna z mulczerem."
-              sizes="(max-width: 899px) 100vw, 560px"
-            />
-            <figcaption>Teren zdjęty pod zabudowę. Drzewo, które ma zostać, zostaje.</figcaption>
-          </figure>
+          <div className="about-photos">
+            <figure className="about-main">
+              <Photo
+                id="drzewo"
+                alt="Oczyszczona działka z jednym zostawionym drzewem, w tle domy i maszyna z mulczerem."
+                sizes="(max-width: 899px) 100vw, 560px"
+              />
+              <figcaption>Teren zdjęty pod zabudowę. Drzewo, które ma zostać, zostaje.</figcaption>
+            </figure>
+            <figure className="about-side">
+              <Photo
+                id="po-wycince"
+                alt="Ciągnik Fendt na oczyszczonej działce po wycince."
+                sizes="(max-width: 899px) 42vw, 240px"
+              />
+            </figure>
+          </div>
           <div className="about-copy">
             <p className="kicker">O firmie</p>
             <h2>Zarośnięta działka schodzi sprzętem, nie grabiami.</h2>
             <p>
-              MulchMaster zajmuje się wycinką i mulczowaniem. Na Facebooku jesteśmy jako
-              Wycinka za Materiał — szukamy działek porośniętych samosiejkami, od 1 ha
+              MulchMaster zajmuje się wycinką i mulczowaniem. Na Facebooku jesteśmy jako{" "}
+              {FACEBOOK_NAME} — szukamy działek porośniętych samosiejkami, od 1&nbsp;ha
               wzwyż, i ścinamy je bez opłaty w zamian za drewno.
             </p>
             <p>
