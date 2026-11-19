@@ -47,21 +47,19 @@ export function About() {
       <div className="wrap steps-block">
         <header className="steps-head">
           <p className="kicker">Jak to działa</p>
-          <h3>Trzy kroki do czystej działki</h3>
+          <h3>Od zdjęcia do czystego gruntu</h3>
         </header>
         <ol className="steps">
           {steps.map((step, index) => (
-            <li key={step.n}>
-              <article className="step-card">
-                <span className="step-n">{step.n}</span>
+            <li key={step.n} className={`step step-${index + 1}`}>
+              <div className="step-mark" aria-hidden="true">
+                <span className="step-node">{step.n}</span>
+                {index < steps.length - 1 && <span className="step-trail" />}
+              </div>
+              <div className="step-body">
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
-              </article>
-              {index < steps.length - 1 && (
-                <span className="step-arrow" aria-hidden="true">
-                  →
-                </span>
-              )}
+              </div>
             </li>
           ))}
         </ol>
