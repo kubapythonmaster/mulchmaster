@@ -16,9 +16,6 @@ export function About() {
       <div className="wrap about-layout">
         <div className="about-copy">
           <p className="kicker">O firmie</p>
-          <span className="about-mark" aria-hidden="true">
-            <span />
-          </span>
           <h2>Robimy to za Was.</h2>
           <p className="about-lead">
             Wycinka i mulczowanie działek — od samosiejek po teren pod budowę. Na Facebooku
@@ -42,7 +39,7 @@ export function About() {
             <Photo
               id="drzewo"
               alt="Oczyszczona działka z jednym zostawionym drzewem, w tle domy i maszyna z mulczerem."
-              sizes="(max-width: 899px) 100vw, 480px"
+              sizes="(max-width: 699px) 92vw, (max-width: 899px) 70vw, 460px"
             />
           </figure>
         </div>

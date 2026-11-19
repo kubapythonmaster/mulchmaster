@@ -106,12 +106,6 @@ export const gallery = [
     alt: "Zielony ciągnik Fendt z mulczerem z przodu stoi na łące pod niebieskim niebem.",
   },
   {
-    id: "fendt-las",
-    title: "Dojazd w drzewostan",
-    text: "Sprzęt wchodzi w teren zadrzewiony.",
-    alt: "Ciągnik Fendt z obciążnikiem i mulczerem na leśnej drodze jesienią.",
-  },
-  {
     id: "kabina-2",
     title: "Z kabiny",
     text: "Kolejne pasy w trakcie mulczowania.",

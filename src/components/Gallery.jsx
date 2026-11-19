@@ -69,16 +69,13 @@ export function Gallery() {
             onClick={() => setActive(index)}
             aria-label={`Powiększ: ${slide.title}`}
           >
-            {gallery.map((item, i) => (
-              <Photo
-                key={item.id}
-                id={item.id}
-                alt={i === index ? item.alt : ""}
-                sizes="(max-width: 900px) 100vw, 1120px"
-                priority={i === 0}
-                className={i === index ? "is-on" : undefined}
-              />
-            ))}
+            <Photo
+              key={slide.id}
+              id={slide.id}
+              alt={slide.alt}
+              sizes="(max-width: 900px) 100vw, 1120px"
+              className="is-on"
+            />
             <span className="show-shade" />
             <span className="show-copy">
               <span className="show-n">{String(index + 1).padStart(2, "0")}</span>

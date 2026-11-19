@@ -15,16 +15,13 @@ const SLIDES = [
     id: "doosan-pole",
     alt: "Koparka Doosan z mulczerem stoi w wysokich zaroślach.",
   },
-  {
-    id: "po-wycince",
-    alt: "Ciągnik Fendt na oczyszczonej działce po wycince.",
-  },
 ];
 
 const SLIDE_MS = 6500;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
+  const slide = SLIDES[index];
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -38,16 +35,14 @@ export function Hero() {
   return (
     <section className="hero" id="start">
       <div className="hero-bg">
-        {SLIDES.map((slide, i) => (
-          <Photo
-            key={slide.id}
-            id={slide.id}
-            alt={i === index ? slide.alt : ""}
-            sizes="100vw"
-            priority={i === 0}
-            className={i === index ? "is-on" : undefined}
-          />
-        ))}
+        <Photo
+          key={slide.id}
+          id={slide.id}
+          alt={slide.alt}
+          sizes="100vw"
+          priority={index === 0}
+          className="is-on"
+        />
         <div className="hero-shade" />
       </div>
       <div className="hero-copy">
