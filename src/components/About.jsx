@@ -44,13 +44,24 @@ export function About() {
           </figure>
         </div>
       </div>
-      <div className="wrap">
+      <div className="wrap steps-block">
+        <header className="steps-head">
+          <p className="kicker">Jak to działa</p>
+          <h3>Trzy kroki do czystej działki</h3>
+        </header>
         <ol className="steps">
-          {steps.map((step) => (
+          {steps.map((step, index) => (
             <li key={step.n}>
-              <span>{step.n}</span>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
+              <article className="step-card">
+                <span className="step-n">{step.n}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+              {index < steps.length - 1 && (
+                <span className="step-arrow" aria-hidden="true">
+                  →
+                </span>
+              )}
             </li>
           ))}
         </ol>
