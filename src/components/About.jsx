@@ -57,6 +57,10 @@ export function About() {
                 {index < steps.length - 1 && <span className="step-trail" />}
               </div>
               <div className="step-body">
+                <span className="step-ghost" aria-hidden="true">
+                  {step.n}
+                </span>
+                <p className="step-tag">{step.tag}</p>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </div>

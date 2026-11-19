@@ -791,12 +791,12 @@ a {
 
 .steps-block {
   margin-top: 12px;
-  padding: 28px 0 8px;
+  padding: 36px 0 8px;
   border-top: 1px solid var(--line);
 }
 
 .steps-head {
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   max-width: 28rem;
 }
 
@@ -813,12 +813,13 @@ a {
   padding: 0;
   display: grid;
   gap: 0;
+  position: relative;
 }
 
 .step {
   display: grid;
-  grid-template-columns: 3rem 1fr;
-  gap: 0 18px;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 0 20px;
   align-items: start;
 }
 
@@ -835,40 +836,56 @@ a {
   flex: none;
   display: grid;
   place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3rem;
+  height: 3rem;
   background: var(--navy);
   color: #fff;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  transform: rotate(-8deg);
+  box-shadow: 0 10px 0 -4px color-mix(in srgb, var(--navy) 18%, transparent);
+}
+
+.step-2 .step-node {
+  transform: rotate(6deg);
+  background: #fff;
+  color: var(--navy);
+  outline: 2px solid var(--navy);
+  outline-offset: -2px;
+}
+
+.step-3 .step-node {
+  transform: rotate(-4deg);
+  background: var(--navy-deep);
 }
 
 .step-trail {
   flex: 1 1 auto;
   width: 2px;
-  min-height: 28px;
-  margin: 4px 0;
+  min-height: 36px;
+  margin: 6px 0;
   background: repeating-linear-gradient(
     180deg,
-    var(--navy) 0 6px,
-    transparent 6px 12px
+    var(--navy) 0 5px,
+    transparent 5px 11px
   );
   position: relative;
+  opacity: 0.55;
 }
 
 .step-trail::after {
-  content: "▾";
+  content: "";
   position: absolute;
   left: 50%;
-  bottom: -2px;
-  transform: translateX(-50%);
-  color: var(--navy);
-  font-size: 0.85rem;
-  line-height: 1;
-  background: #fff;
-  padding: 2px 0;
+  bottom: -1px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
+  transform: translateX(-50%) rotate(45deg);
+  opacity: 0.9;
 }
 
 .step:last-child .step-trail {
@@ -876,30 +893,55 @@ a {
 }
 
 .step-body {
-  padding: 2px 0 28px;
+  position: relative;
+  padding: 4px 0 32px;
   min-width: 0;
+  overflow: hidden;
+}
+
+.step-ghost {
+  position: absolute;
+  top: -0.35rem;
+  right: 0;
+  font-size: clamp(3.4rem, 9vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: color-mix(in srgb, var(--navy) 9%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+
+.step-tag {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
 }
 
 .step-body h3 {
   margin: 0 0 8px;
-  font-size: clamp(1.25rem, 2.5vw, 1.55rem);
-  letter-spacing: -0.02em;
+  font-size: clamp(1.28rem, 2.6vw, 1.6rem);
+  letter-spacing: -0.025em;
   color: var(--ink);
+  max-width: 16ch;
 }
 
-.step-body p {
+.step-body > p:last-child {
   margin: 0;
-  max-width: 34rem;
+  max-width: 32rem;
   color: var(--muted);
   line-height: 1.55;
 }
 
 .step-1 .step-body {
-  padding-right: 8%;
+  padding-right: 10%;
 }
 
 .step-2 .step-body {
-  padding-left: 4%;
+  padding-left: 2%;
 }
 
 .step-3 .step-body h3 {
@@ -1697,13 +1739,13 @@ dialog.lightbox::backdrop {
 
   .steps {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0 28px;
+    gap: 0 20px;
     align-items: start;
   }
 
   .step {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 18px;
   }
 
   .step-mark {
@@ -1717,22 +1759,26 @@ dialog.lightbox::backdrop {
     width: auto;
     min-height: 0;
     height: 2px;
-    margin: 0 0 0 8px;
+    margin: 0 0 0 10px;
     background: repeating-linear-gradient(
       90deg,
-      var(--navy) 0 8px,
-      transparent 8px 16px
+      var(--navy) 0 7px,
+      transparent 7px 14px
     );
   }
 
   .step-trail::after {
-    content: "▸";
     left: auto;
-    right: -2px;
+    right: 0;
     bottom: auto;
     top: 50%;
-    transform: translateY(-50%);
-    padding: 0 2px;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  .step-ghost {
+    top: -0.55rem;
+    right: auto;
+    left: 0;
   }
 
   .step-1 .step-body,
@@ -1741,11 +1787,11 @@ dialog.lightbox::backdrop {
   }
 
   .step-2 {
-    margin-top: 36px;
+    margin-top: 42px;
   }
 
   .step-3 {
-    margin-top: 72px;
+    margin-top: 84px;
   }
 
   .svc-head {

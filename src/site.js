@@ -13,16 +13,19 @@ export const external = {
 export const steps = [
   {
     n: "01",
+    tag: "Start",
     title: "Zdjęcie i telefon",
     text: "Zadzwoń albo wyślij zdjęcie działki. Napisz, co rośnie i czy teren ma zostać pod budowę.",
   },
   {
     n: "02",
+    tag: "Ustalenia",
     title: "Za materiał albo wycena",
     text: "Samosiejki od 1 ha bierzemy w zamian za materiał. Resztę prac wyceniamy przed wyjazdem.",
   },
   {
     n: "03",
+    tag: "Na miejscu",
     title: "Wjazd i czysty grunt",
     text: "Wycinka, mulczowanie i — jeśli trzeba — frezowanie albo wywóz. Zostaje teren, po którym da się jechać.",
   },
