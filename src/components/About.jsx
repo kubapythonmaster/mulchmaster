@@ -12,9 +12,10 @@ const points = [
 
 export function About() {
   return (
-    <section className="section about tone" id="o-firmie">
+    <section className="section about sheet" id="o-firmie">
       <div className="wrap about-layout">
         <div className="about-copy">
+          <p className="kicker">O firmie</p>
           <span className="about-mark" aria-hidden="true">
             <span />
           </span>
