@@ -58,104 +58,106 @@ export function Contact() {
   }
 
   return (
-    <section className="section contact contact-panel sheet" id="napisz">
-      <div className="wrap contact-grid">
-        <div className="contact-copy">
-          <p className="kicker">Napisz do nas</p>
-          <h2>Wyślij zdjęcie działki albo zadzwoń.</h2>
-          <a className="phone-xl" href={PHONE_HREF}>
-            {PHONE_DISPLAY}
-          </a>
-          <p className="contact-lead">
-            Jesteśmy w terenie przy maszynach. Jak nie odbierzemy — oddzwonimy.
-            Zdjęcie działki skraca wycenę do kilku pytań.
-          </p>
+    <section className="section contact contact-panel" id="napisz">
+      <div className="wrap contact-shell">
+        <div className="contact-grid">
+          <div className="contact-copy">
+            <p className="kicker">Napisz do nas</p>
+            <h2>Wyślij zdjęcie działki albo zadzwoń.</h2>
+            <a className="phone-xl" href={PHONE_HREF}>
+              {PHONE_DISPLAY}
+            </a>
+            <p className="contact-lead">
+              Jesteśmy w terenie przy maszynach. Jak nie odbierzemy — oddzwonimy.
+              Zdjęcie działki skraca wycenę do kilku pytań.
+            </p>
 
-          <ul className="contact-channels">
-            {channels.map((channel) => (
-              <li key={channel.label}>
-                <a href={channel.href} {...(channel.external ? external : {})}>
-                  <span className="contact-channel-label">{channel.label}</span>
-                  <strong>{channel.value}</strong>
-                  <span className="contact-channel-note">{channel.note}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <form className="form" onSubmit={onSubmit} aria-describedby="form-note">
-          <p className="form-kicker">Bez wysyłki na serwer</p>
-          <h3>Opisz działkę</h3>
-          <p className="quiet">
-            Składamy gotowy tekst do SMS-a albo WhatsAppa. Ty wysyłasz — my oddzwaniamy.
-          </p>
-          <label className="field">
-            Imię
-            <input name="name" autoComplete="name" required maxLength={80} />
-          </label>
-          <label className="field">
-            Telefon
-            <input
-              name="phone"
-              type="tel"
-              autoComplete="tel"
-              inputMode="tel"
-              required
-              minLength={9}
-              maxLength={20}
-              pattern="[0-9+ ]{9,}"
-              title="Podaj numer telefonu"
-            />
-          </label>
-          <label className="field">
-            Usługa
-            <select name="service" defaultValue={formServices[0]}>
-              {formServices.map((service) => (
-                <option key={service}>{service}</option>
+            <ul className="contact-channels">
+              {channels.map((channel) => (
+                <li key={channel.label}>
+                  <a href={channel.href} {...(channel.external ? external : {})}>
+                    <span className="contact-channel-label">{channel.label}</span>
+                    <strong>{channel.value}</strong>
+                    <span className="contact-channel-note">{channel.note}</span>
+                  </a>
+                </li>
               ))}
-            </select>
-          </label>
-          <label className="field">
-            Co jest do zrobienia
-            <textarea
-              name="details"
-              required
-              maxLength={800}
-              rows={4}
-              placeholder="Gdzie jest działka, ile hektarów, co na niej rośnie."
-            />
-          </label>
-          <button className="btn" type="submit">
-            Przygotuj wiadomość
-          </button>
-          <p id="form-note" className="quiet form-note">
-            SMS ucina długie treści. Do zdjęcia działki lepszy WhatsApp.
-          </p>
-          {draft && (
-            <div className="draft" aria-live="polite">
-              <label className="field">
-                Gotowa wiadomość
-                <textarea readOnly value={draft} rows={5} />
-              </label>
-              <div className="actions">
-                <button className="btn" type="button" onClick={copyDraft}>
-                  {copied ? "Skopiowano" : "Kopiuj"}
-                </button>
-                <a className="btn btn-ghost" href={`sms:${PHONE_TEL}?body=${encodeURIComponent(draft)}`}>
-                  Otwórz SMS
-                </a>
-                <a
-                  className="btn btn-ghost"
-                  href={`${WHATSAPP}?text=${encodeURIComponent(draft)}`}
-                  {...external}
-                >
-                  WhatsApp
-                </a>
+            </ul>
+          </div>
+
+          <form className="form contact-form" onSubmit={onSubmit} aria-describedby="form-note">
+            <p className="form-kicker">Bez wysyłki na serwer</p>
+            <h3>Opisz działkę</h3>
+            <p className="quiet">
+              Składamy gotowy tekst do SMS-a albo WhatsAppa. Ty wysyłasz — my oddzwaniamy.
+            </p>
+            <label className="field">
+              Imię
+              <input name="name" autoComplete="name" required maxLength={80} />
+            </label>
+            <label className="field">
+              Telefon
+              <input
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                inputMode="tel"
+                required
+                minLength={9}
+                maxLength={20}
+                pattern="[0-9+ ]{9,}"
+                title="Podaj numer telefonu"
+              />
+            </label>
+            <label className="field">
+              Usługa
+              <select name="service" defaultValue={formServices[0]}>
+                {formServices.map((service) => (
+                  <option key={service}>{service}</option>
+                ))}
+              </select>
+            </label>
+            <label className="field">
+              Co jest do zrobienia
+              <textarea
+                name="details"
+                required
+                maxLength={800}
+                rows={4}
+                placeholder="Gdzie jest działka, ile hektarów, co na niej rośnie."
+              />
+            </label>
+            <button className="btn" type="submit">
+              Przygotuj wiadomość
+            </button>
+            <p id="form-note" className="quiet form-note">
+              SMS ucina długie treści. Do zdjęcia działki lepszy WhatsApp.
+            </p>
+            {draft && (
+              <div className="draft" aria-live="polite">
+                <label className="field">
+                  Gotowa wiadomość
+                  <textarea readOnly value={draft} rows={5} />
+                </label>
+                <div className="actions">
+                  <button className="btn" type="button" onClick={copyDraft}>
+                    {copied ? "Skopiowano" : "Kopiuj"}
+                  </button>
+                  <a className="btn btn-ghost" href={`sms:${PHONE_TEL}?body=${encodeURIComponent(draft)}`}>
+                    Otwórz SMS
+                  </a>
+                  <a
+                    className="btn btn-ghost"
+                    href={`${WHATSAPP}?text=${encodeURIComponent(draft)}`}
+                    {...external}
+                  >
+                    WhatsApp
+                  </a>
+                </div>
               </div>
-            </div>
-          )}
-        </form>
+            )}
+          </form>
+        </div>
       </div>
     </section>
   );

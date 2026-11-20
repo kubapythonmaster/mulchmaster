@@ -655,13 +655,17 @@ a {
   color: #d7f0dc;
 }
 
+.page-contact {
+  background: #f3f5f1;
+}
+
 .page-hero {
   position: relative;
   isolation: isolate;
-  min-height: clamp(320px, 52vh, 460px);
+  min-height: clamp(340px, 54vh, 480px);
   display: grid;
   align-items: end;
-  padding: 88px 0 56px;
+  padding: 96px 0 64px;
   color: #fff;
   overflow: hidden;
 }
@@ -726,28 +730,38 @@ a {
   border-color: #fff;
 }
 
+.page-trail {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  margin: 0 0 18px;
+  margin: 0;
+  padding: 14px 0;
   font-size: 0.88rem;
   font-weight: 600;
-  color: #d5e6da;
+  color: var(--muted);
 }
 
 .breadcrumbs a {
-  color: #c9dcc8;
+  color: var(--navy);
   text-decoration: none;
 }
 
 .breadcrumbs a:hover {
-  color: #fff;
+  color: var(--navy-2);
+}
+
+.breadcrumbs span[aria-hidden="true"] {
+  color: #b4c0b6;
 }
 
 .breadcrumbs span[aria-current="page"] {
-  color: #fff;
+  color: var(--ink);
 }
 
 .contact-teaser-inner {
@@ -793,16 +807,37 @@ a {
   border-color: #fff;
 }
 
+.contact-panel {
+  padding-top: 36px;
+  padding-bottom: 72px;
+  background: transparent;
+}
+
+.contact-shell {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 28px 22px 24px;
+  box-shadow: 0 18px 50px rgba(12, 16, 14, 0.06);
+}
+
 .contact-panel .phone-xl {
   color: var(--navy);
 }
 
+.contact-panel .contact-channels {
+  margin-top: 8px;
+}
+
 .contact-panel .contact-channels a {
   border-color: var(--line);
+  padding: 14px 12px;
+  margin: 0 -12px;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .contact-panel .contact-channels a:hover {
-  background: color-mix(in srgb, var(--navy) 4%, transparent);
+  background: #f3f7f2;
+  border-color: color-mix(in srgb, var(--navy) 28%, var(--line));
 }
 
 .contact-panel .contact-channel-label {
@@ -811,17 +846,46 @@ a {
 
 .contact-panel .contact-channels strong {
   color: var(--ink);
+  font-size: 1.18rem;
 }
 
 .contact-panel .contact-channel-note {
   color: var(--muted);
 }
 
-.contact-panel .form {
-  background: #f7faf6;
+.contact-panel .contact-form {
+  background: #f6f9f5;
   border: 1px solid var(--line);
-  border-top: 1px solid var(--line);
-  padding: 24px 22px 20px;
+  padding: 24px 20px 20px;
+}
+
+.contact-panel .contact-form h3 {
+  margin-bottom: 6px;
+}
+
+.contact-panel .field input,
+.contact-panel .field textarea,
+.contact-panel .field select {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 12px;
+  margin-top: 8px;
+}
+
+.contact-panel .field input:focus,
+.contact-panel .field textarea:focus,
+.contact-panel .field select:focus {
+  border-color: var(--navy);
+  outline: 2px solid color-mix(in srgb, var(--navy) 18%, transparent);
+  outline-offset: 0;
+}
+
+.contact-panel .draft {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 14px 14px 12px;
+  margin-top: 18px;
 }
 
 .section[content-visibility],
@@ -2093,9 +2157,11 @@ dialog.lightbox::backdrop {
     align-items: start;
   }
 
-  .contact-panel .form {
-    border-top: 1px solid var(--line);
-    border-left: 0;
+  .contact-shell {
+    padding: 40px 40px 36px;
+  }
+
+  .contact-panel .contact-form {
     padding: 28px 26px 22px;
   }
 
