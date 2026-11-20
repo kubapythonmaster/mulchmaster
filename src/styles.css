@@ -655,51 +655,183 @@ a {
   color: #d7f0dc;
 }
 
-.tone .contact-channels a {
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-.tone .contact-channels a:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-.tone .contact-channel-label {
-  color: #b7dfc0;
-}
-
-.tone .contact-channels strong {
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(320px, 52vh, 460px);
+  display: grid;
+  align-items: end;
+  padding: 88px 0 56px;
   color: #fff;
+  overflow: hidden;
 }
 
-.tone .contact-channel-note {
+.page-hero-bg,
+.page-hero-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero-bg {
+  z-index: 0;
+  background: #0c100e;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.page-hero-shade {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, #0c100ef2 0%, #0c100ecc 48%, #0c100e55 100%),
+    linear-gradient(0deg, #0c100ef0 0%, transparent 58%);
+}
+
+.page-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 40rem;
+}
+
+.page-hero .kicker {
+  color: #c9dcc8;
+}
+
+.page-hero h1 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.page-hero .lead {
+  color: #e8f0ea;
+  max-width: 34rem;
+  margin: 0 0 22px;
+}
+
+.page-hero .btn-ghost {
+  color: #fff;
+  border-color: #ffffff80;
+}
+
+.page-hero .btn-ghost:hover {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: #d5e6da;
 }
 
-.tone .form {
-  background: #fff;
-  color: var(--ink);
-  padding: 28px 28px 22px;
-  border: 0;
+.breadcrumbs a {
+  color: #c9dcc8;
+  text-decoration: none;
 }
 
-.tone .form-kicker {
+.breadcrumbs a:hover {
+  color: #fff;
+}
+
+.breadcrumbs span[aria-current="page"] {
+  color: #fff;
+}
+
+.contact-teaser-inner {
+  display: grid;
+  gap: 24px;
+  align-items: end;
+}
+
+.contact-teaser h2 {
+  margin: 0 0 10px;
+  max-width: 16ch;
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.contact-teaser p {
+  margin: 0;
+  max-width: 36rem;
+}
+
+.contact-teaser-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tone .contact-teaser-actions .btn {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}
+
+.tone .contact-teaser-actions .btn-ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.tone .contact-teaser-actions .btn-ghost:hover {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}
+
+.contact-panel .phone-xl {
   color: var(--navy);
 }
 
-.tone .form h3 {
+.contact-panel .contact-channels a {
+  border-color: var(--line);
+}
+
+.contact-panel .contact-channels a:hover {
+  background: color-mix(in srgb, var(--navy) 4%, transparent);
+}
+
+.contact-panel .contact-channel-label {
+  color: var(--navy);
+}
+
+.contact-panel .contact-channels strong {
   color: var(--ink);
 }
 
-.tone .form .quiet,
-.tone .form .field {
+.contact-panel .contact-channel-note {
   color: var(--muted);
 }
 
-.tone .form .field input,
-.tone .form .field textarea,
-.tone .form .field select {
-  color: var(--ink);
+.contact-panel .form {
+  background: #f7faf6;
+  border: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  padding: 24px 22px 20px;
+}
+
+.section[content-visibility],
+.band,
+.faq,
+.gear,
+.work,
+.contact-teaser {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
 }
 
 .about-layout {
@@ -1959,6 +2091,17 @@ dialog.lightbox::backdrop {
     grid-template-columns: 1.15fr 1fr;
     gap: 48px;
     align-items: start;
+  }
+
+  .contact-panel .form {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+    padding: 28px 26px 22px;
+  }
+
+  .contact-teaser-inner {
+    grid-template-columns: 1.2fr auto;
+    gap: 40px;
   }
 
   .svc-grid {

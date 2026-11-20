@@ -1,3 +1,4 @@
+import { contactUrl } from "../paths.js";
 import { services } from "../site.js";
 
 export function Services() {
@@ -20,7 +21,7 @@ export function Services() {
               <p>{service.text}</p>
             </article>
           ))}
-          <a className="svc-ask" href="#kontakt">
+          <a className="svc-ask" href={contactUrl}>
             <span>12</span>
             <h3>Nie wiesz, co wybrać</h3>
             <p className="svc-tags">Zdjęcie · telefon</p>

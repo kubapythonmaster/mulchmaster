@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
+import { contactUrl, homeUrl, sectionUrl } from "../paths.js";
 import { PHONE_DISPLAY, PHONE_HREF } from "../site.js";
 import { Mark } from "./Mark.jsx";
 
-const LINKS = [
-  ["#o-firmie", "O firmie"],
-  ["#uslugi", "Usługi"],
-  ["#realizacje", "Realizacje"],
-  ["#pytania", "Pytania"],
-  ["#kontakt", "Kontakt"],
+const SECTION_LINKS = [
+  ["o-firmie", "O firmie"],
+  ["uslugi", "Usługi"],
+  ["realizacje", "Realizacje"],
+  ["pytania", "Pytania"],
 ];
 
-const SECTION_IDS = LINKS.map(([href]) => href.slice(1));
-
-export function Header() {
+export function Header({ contactPage = false }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
 
@@ -30,7 +28,12 @@ export function Header() {
   }, [open]);
 
   useEffect(() => {
-    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    if (contactPage) {
+      setActive("kontakt");
+      return undefined;
+    }
+
+    const sections = SECTION_LINKS.map(([id]) => document.getElementById(id)).filter(Boolean);
     if (!sections.length) return undefined;
 
     const observer = new IntersectionObserver(
@@ -50,12 +53,12 @@ export function Header() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [contactPage]);
 
   return (
     <header className="header">
       <div className="wrap header-bar">
-        <a className="logo" href="#start" onClick={() => setOpen(false)}>
+        <a className="logo" href={homeUrl} onClick={() => setOpen(false)}>
           <Mark />
           <span>
             <strong>MulchMaster</strong>
@@ -63,20 +66,25 @@ export function Header() {
           </span>
         </a>
         <nav id="menu" className={open ? "nav is-open" : "nav"} aria-label="Główne">
-          {LINKS.map(([href, label]) => {
-            const id = href.slice(1);
-            return (
-              <a
-                key={href}
-                href={href}
-                className={active === id ? "is-active" : undefined}
-                aria-current={active === id ? "true" : undefined}
-                onClick={() => setOpen(false)}
-              >
-                {label}
-              </a>
-            );
-          })}
+          {SECTION_LINKS.map(([id, label]) => (
+            <a
+              key={id}
+              href={sectionUrl(`#${id}`)}
+              className={!contactPage && active === id ? "is-active" : undefined}
+              aria-current={!contactPage && active === id ? "true" : undefined}
+              onClick={() => setOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            href={contactUrl}
+            className={contactPage || active === "kontakt" ? "is-active" : undefined}
+            aria-current={contactPage ? "page" : undefined}
+            onClick={() => setOpen(false)}
+          >
+            Kontakt
+          </a>
           <a className="btn nav-call" href={PHONE_HREF} onClick={() => setOpen(false)}>
             Zadzwoń · {PHONE_DISPLAY}
           </a>

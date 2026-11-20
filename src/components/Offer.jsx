@@ -1,3 +1,4 @@
+import { contactUrl } from "../paths.js";
 import { PHONE_HREF } from "../site.js";
 import { Photo } from "./Photo.jsx";
 
@@ -20,7 +21,7 @@ export function Offer() {
             <a className="btn" href={PHONE_HREF}>
               Zadzwoń teraz
             </a>
-            <a className="btn btn-ghost" href="#kontakt">
+            <a className="btn btn-ghost" href={contactUrl}>
               Wyślij zdjęcie działki
             </a>
           </div>

@@ -4,9 +4,10 @@ import { App } from "./App.jsx";
 import "./styles.css";
 
 const root = document.getElementById("root");
+const url = `${window.location.pathname}${window.location.search}`;
 const app = (
   <StrictMode>
-    <App />
+    <App url={url} />
   </StrictMode>
 );
 

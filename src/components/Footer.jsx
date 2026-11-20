@@ -1,3 +1,4 @@
+import { contactUrl, homeUrl, sectionUrl } from "../paths.js";
 import {
   external,
   FACEBOOK,
@@ -35,7 +36,7 @@ export function Footer() {
     <footer className="footer">
       <div className="wrap footer-main">
         <div className="footer-signoff">
-          <a className="footer-brand" href="#start">
+          <a className="footer-brand" href={homeUrl}>
             <Mark />
             <span>MulchMaster</span>
           </a>
@@ -60,7 +61,7 @@ export function Footer() {
               <IconFacebook />
               Facebook
             </a>
-            <a className="footer-icon-link footer-icon-link--text" href="#kontakt">
+            <a className="footer-icon-link footer-icon-link--text" href={contactUrl}>
               Opisz działkę
             </a>
           </div>
@@ -69,12 +70,12 @@ export function Footer() {
 
       <div className="wrap footer-links-row">
         <nav className="footer-inline" aria-label="Stopka">
-          <a href="#o-firmie">O firmie</a>
-          <a href="#uslugi">Usługi</a>
-          <a href="#sprzet">Sprzęt</a>
-          <a href="#realizacje">Realizacje</a>
-          <a href="#pytania">Pytania</a>
-          <a href="#kontakt">Kontakt</a>
+          <a href={sectionUrl("#o-firmie")}>O firmie</a>
+          <a href={sectionUrl("#uslugi")}>Usługi</a>
+          <a href={sectionUrl("#sprzet")}>Sprzęt</a>
+          <a href={sectionUrl("#realizacje")}>Realizacje</a>
+          <a href={sectionUrl("#pytania")}>Pytania</a>
+          <a href={contactUrl}>Kontakt</a>
         </nav>
       </div>
 

@@ -13,5 +13,15 @@ export default defineConfig({
     target: "es2020",
     sourcemap: false,
     cssMinify: true,
+    modulePreload: { polyfill: false },
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules/react") || id.includes("node_modules/scheduler")) {
+            return "react";
+          }
+        },
+      },
+    },
   },
 });

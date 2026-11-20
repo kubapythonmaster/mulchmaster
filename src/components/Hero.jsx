@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { contactUrl } from "../paths.js";
 import { PHONE_HREF } from "../site.js";
 import { Photo } from "./Photo.jsx";
 
@@ -60,8 +61,8 @@ export function Hero() {
           <a className="btn" href={PHONE_HREF}>
             Zadzwoń: 512 984 776
           </a>
-          <a className="btn btn-ghost" href="#realizacje">
-            Zobacz realizacje
+          <a className="btn btn-ghost" href={contactUrl}>
+            Napisz / kontakt
           </a>
         </div>
       </div>

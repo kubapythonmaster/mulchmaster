@@ -58,10 +58,10 @@ export function Contact() {
   }
 
   return (
-    <section className="section contact tone" id="kontakt">
+    <section className="section contact contact-panel sheet" id="napisz">
       <div className="wrap contact-grid">
         <div className="contact-copy">
-          <p className="kicker">Kontakt</p>
+          <p className="kicker">Napisz do nas</p>
           <h2>Wyślij zdjęcie działki albo zadzwoń.</h2>
           <a className="phone-xl" href={PHONE_HREF}>
             {PHONE_DISPLAY}
@@ -74,10 +74,7 @@ export function Contact() {
           <ul className="contact-channels">
             {channels.map((channel) => (
               <li key={channel.label}>
-                <a
-                  href={channel.href}
-                  {...(channel.external ? external : {})}
-                >
+                <a href={channel.href} {...(channel.external ? external : {})}>
                   <span className="contact-channel-label">{channel.label}</span>
                   <strong>{channel.value}</strong>
                   <span className="contact-channel-note">{channel.note}</span>

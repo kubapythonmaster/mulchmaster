@@ -1,3 +1,4 @@
+import { contactUrl } from "../paths.js";
 import { faq } from "../site.js";
 
 export function Faq() {
@@ -11,7 +12,7 @@ export function Faq() {
             Krótko i konkretnie — bez obiecywania roboty, której nie robimy.
             Jak coś jest niejasne, dzwoń.
           </p>
-          <a className="faq-jump" href="#kontakt">
+          <a className="faq-jump" href={contactUrl}>
             Masz inne pytanie? Napisz
           </a>
         </header>
