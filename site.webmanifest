@@ -1,0 +1,13 @@
+{
+  "name": "MulchMaster — wycinka i mulczowanie",
+  "short_name": "MulchMaster",
+  "lang": "pl",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f3f5f1",
+  "theme_color": "#0c100e",
+  "icons": [
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
