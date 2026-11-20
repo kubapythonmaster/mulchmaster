@@ -1681,8 +1681,35 @@ a {
   color: #fff;
 }
 
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.footer-social-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #2f6a45;
+  background: #1b4332;
+  color: #b7dfc0;
+}
+
+.footer-social-btn:hover {
+  background: #24573f;
+  border-color: #b7dfc0;
+  color: #fff;
+}
+
+.footer-social-btn svg {
+  display: block;
+}
+
 .footer-hours {
-  margin: 12px 0 0;
+  margin: 14px 0 0;
   max-width: 26rem;
   font-size: 0.95rem;
   color: #e8eef6a6;
