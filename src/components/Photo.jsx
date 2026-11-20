@@ -6,14 +6,15 @@ export function Photo({ id, alt, sizes, priority = false, className }) {
   return (
     <img
       className={className}
-      src={photo.src}
-      srcSet={`${photo.sm} 480w, ${photo.src} ${photo.w}w`}
+      src={photo.md || photo.src}
+      srcSet={`${photo.sm} 480w, ${photo.md} 960w, ${photo.src} ${photo.w}w`}
       sizes={sizes}
       width={photo.w}
       height={photo.h}
       alt={alt}
       decoding="async"
       loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
     />
   );
 }

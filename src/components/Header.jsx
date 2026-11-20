@@ -10,8 +10,11 @@ const LINKS = [
   ["#kontakt", "Kontakt"],
 ];
 
+const SECTION_IDS = LINKS.map(([href]) => href.slice(1));
+
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     if (!open) return undefined;
@@ -26,6 +29,29 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!sections.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]?.target?.id) {
+          setActive(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-28% 0px -55% 0px",
+        threshold: [0.08, 0.2, 0.4],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header className="header">
       <div className="wrap header-bar">
@@ -37,11 +63,20 @@ export function Header() {
           </span>
         </a>
         <nav id="menu" className={open ? "nav is-open" : "nav"} aria-label="Główne">
-          {LINKS.map(([href, label]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>
-              {label}
-            </a>
-          ))}
+          {LINKS.map(([href, label]) => {
+            const id = href.slice(1);
+            return (
+              <a
+                key={href}
+                href={href}
+                className={active === id ? "is-active" : undefined}
+                aria-current={active === id ? "true" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {label}
+              </a>
+            );
+          })}
           <a className="btn nav-call" href={PHONE_HREF} onClick={() => setOpen(false)}>
             Zadzwoń · {PHONE_DISPLAY}
           </a>

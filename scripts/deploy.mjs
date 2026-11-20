@@ -29,7 +29,8 @@ function walk(dir) {
       .replaceAll('href="/site.webmanifest', `href="${base}site.webmanifest`)
       .replaceAll('content="/media/', `content="${base}media/`)
       .replaceAll('imagesrcset="/media/', `imagesrcset="${base}media/`)
-      .replaceAll(", /media/", `, ${base}media/`);
+      .replaceAll(", /media/", `, ${base}media/`)
+      .replaceAll('srcset="/media/', `srcset="${base}media/`);
     if (next !== text) writeFileSync(path, next);
   }
 }

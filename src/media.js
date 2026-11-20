@@ -1,8 +1,9 @@
 const base = import.meta.env.BASE_URL;
 
-function shot(id, w = 768, h = 1024) {
+function shot(id, w = 1200, h = 1600) {
   return {
     src: `${base}media/${id}.webp`,
+    md: `${base}media/${id}-960.webp`,
     sm: `${base}media/${id}-480.webp`,
     w,
     h,
@@ -19,7 +20,7 @@ export const media = {
   "kabina-2": shot("kabina-2"),
   "fendt-las": shot("fendt-las"),
   glowica: shot("glowica"),
-  plac: shot("plac", 576, 1024),
+  plac: shot("plac", 1200, 2133),
   "po-wycince": shot("po-wycince"),
   "fendt-plac": shot("fendt-plac"),
 };
