@@ -10,6 +10,29 @@ import {
   WHATSAPP,
 } from "../site.js";
 
+const channels = [
+  {
+    href: PHONE_HREF,
+    label: "Telefon",
+    value: PHONE_DISPLAY,
+    note: "Najszybciej — od razu ustalimy działkę.",
+  },
+  {
+    href: WHATSAPP,
+    label: "WhatsApp",
+    value: "Wyślij zdjęcie",
+    note: "Dołącz lokalizację albo fotkę z terenu.",
+    external: true,
+  },
+  {
+    href: FACEBOOK,
+    label: "Facebook",
+    value: FACEBOOK_NAME,
+    note: "Napisz wiadomość, oddzwaniamy z roboty.",
+    external: true,
+  },
+];
+
 export function Contact() {
   const [draft, setDraft] = useState(null);
   const [copied, setCopied] = useState(false);
@@ -39,27 +62,37 @@ export function Contact() {
       <div className="wrap contact-grid">
         <div className="contact-copy">
           <p className="kicker">Kontakt</p>
-          <h2>Zadzwoń.</h2>
+          <h2>Wyślij zdjęcie działki albo zadzwoń.</h2>
           <a className="phone-xl" href={PHONE_HREF}>
             {PHONE_DISPLAY}
           </a>
           <p className="contact-lead">
-            Napisz na WhatsAppie albo Facebooku i dołącz zdjęcie działki. Jak nie odbierzemy,
-            jesteśmy w terenie — oddzwonimy.
+            Jesteśmy w terenie przy maszynach. Jak nie odbierzemy — oddzwonimy.
+            Zdjęcie działki skraca wycenę do kilku pytań.
           </p>
-          <div className="contact-actions">
-            <a className="btn" href={WHATSAPP} {...external}>
-              WhatsApp
-            </a>
-            <a className="btn btn-ghost" href={FACEBOOK} {...external}>
-              Facebook
-            </a>
-          </div>
-          <p className="contact-note">Na Facebooku jako {FACEBOOK_NAME}.</p>
+
+          <ul className="contact-channels">
+            {channels.map((channel) => (
+              <li key={channel.label}>
+                <a
+                  href={channel.href}
+                  {...(channel.external ? external : {})}
+                >
+                  <span className="contact-channel-label">{channel.label}</span>
+                  <strong>{channel.value}</strong>
+                  <span className="contact-channel-note">{channel.note}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+
         <form className="form" onSubmit={onSubmit} aria-describedby="form-note">
-          <h3>Albo napisz tu</h3>
-          <p className="quiet">Składamy tekst do SMS-a albo WhatsAppa. Nic nie leci na serwer.</p>
+          <p className="form-kicker">Bez wysyłki na serwer</p>
+          <h3>Opisz działkę</h3>
+          <p className="quiet">
+            Składamy gotowy tekst do SMS-a albo WhatsAppa. Ty wysyłasz — my oddzwaniamy.
+          </p>
           <label className="field">
             Imię
             <input name="name" autoComplete="name" required maxLength={80} />
@@ -97,7 +130,7 @@ export function Contact() {
             />
           </label>
           <button className="btn" type="submit">
-            Złóż wiadomość
+            Przygotuj wiadomość
           </button>
           <p id="form-note" className="quiet form-note">
             SMS ucina długie treści. Do zdjęcia działki lepszy WhatsApp.
@@ -115,7 +148,11 @@ export function Contact() {
                 <a className="btn btn-ghost" href={`sms:${PHONE_TEL}?body=${encodeURIComponent(draft)}`}>
                   Otwórz SMS
                 </a>
-                <a className="btn btn-ghost" href={`${WHATSAPP}?text=${encodeURIComponent(draft)}`} {...external}>
+                <a
+                  className="btn btn-ghost"
+                  href={`${WHATSAPP}?text=${encodeURIComponent(draft)}`}
+                  {...external}
+                >
                   WhatsApp
                 </a>
               </div>

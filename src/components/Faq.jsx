@@ -2,17 +2,26 @@ import { faq } from "../site.js";
 
 export function Faq() {
   return (
-    <section className="section sheet" id="pytania">
-      <div className="faq-wrap">
-        <header className="section-head center-head">
+    <section className="section sheet faq" id="pytania">
+      <div className="wrap faq-layout">
+        <header className="faq-intro">
           <p className="kicker">Pytania</p>
-          <h2>Zanim wjedziemy</h2>
-          <p>Krótko, bez obiecywania roboty, której nie ma w zakresie.</p>
+          <h2>Zanim wjedziemy na działkę</h2>
+          <p>
+            Krótko i konkretnie — bez obiecywania roboty, której nie robimy.
+            Jak coś jest niejasne, dzwoń.
+          </p>
+          <a className="faq-jump" href="#kontakt">
+            Masz inne pytanie? Napisz
+          </a>
         </header>
         <div className="faq-list">
-          {faq.map((item) => (
+          {faq.map((item, index) => (
             <details key={item.q}>
-              <summary>{item.q}</summary>
+              <summary>
+                <span className="faq-num">{String(index + 1).padStart(2, "0")}</span>
+                <span className="faq-q">{item.q}</span>
+              </summary>
               <p>{item.a}</p>
             </details>
           ))}

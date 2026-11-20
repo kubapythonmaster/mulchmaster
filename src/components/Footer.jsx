@@ -18,11 +18,12 @@ export function Footer() {
             <span>MulchMaster</span>
           </a>
           <p className="footer-tag">
-            Wycinka drzew, mulczowanie i porządkowanie działek. Na Facebooku jako {FACEBOOK_NAME}.
+            Wycinka, mulczowanie i czyszczenie działek. Na Facebooku jako {FACEBOOK_NAME}.
           </p>
           <a className="footer-phone" href={PHONE_HREF}>
             {PHONE_DISPLAY}
           </a>
+          <p className="footer-hours">Oddzwaniamy z terenu — także wieczorem po robocie.</p>
         </div>
         <div className="footer-nav">
           <div>
@@ -30,17 +31,18 @@ export function Footer() {
             <ul>
               <li><a href="#o-firmie">O firmie</a></li>
               <li><a href="#uslugi">Usługi</a></li>
+              <li><a href="#sprzet">Sprzęt</a></li>
               <li><a href="#realizacje">Realizacje</a></li>
               <li><a href="#pytania">Pytania</a></li>
-              <li><a href="#kontakt">Kontakt</a></li>
             </ul>
           </div>
           <div>
-            <p className="footer-label">Kontakt</p>
+            <p className="footer-label">Napisz</p>
             <ul>
               <li><a href={PHONE_HREF}>Zadzwoń</a></li>
               <li><a href={WHATSAPP} {...external}>WhatsApp</a></li>
               <li><a href={FACEBOOK} {...external}>Facebook</a></li>
+              <li><a href="#kontakt">Opisz działkę</a></li>
             </ul>
           </div>
         </div>
